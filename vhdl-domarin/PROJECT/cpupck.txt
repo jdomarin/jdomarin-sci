@@ -1,0 +1,57 @@
+fichier: cpupck.txt
+
+(C) Copyright Alexandre Parodi - 2004 - mars 2007
+
+Blocs à copier-coller et à remplir pour instantier 
+les composants du CPU_PACK.
+
+
+rf: TRIPLE_PORT_REG_FILE          -- bloc de registres
+    generic map (
+        alpha =>  ,  -- largeur des sélecteurs
+        M     =>  ,  -- nombre de registres
+        N     =>  )  -- largeur du mot de donnée
+    port map (
+        clock =>  ,  -- horloge
+        R     =>  ,  -- remise à zéro
+        L     =>  ,  -- commande de chargement
+        INS   =>  ,  -- IS sélecteur du registre à charger
+        OAS   =>  ,  -- OAS sélecteur du registre en sortie A
+        OBS   =>  ,  -- OBS sélecteur du registre en sortie B
+        I     =>  ,  -- entrée de donnée à charger
+        OA    =>  ,  -- sortie A
+        OB    =>  ); -- sortie B
+
+alsu: ALSUN     -- opérateur de calcul
+    generic map (
+        N   => )   -- largeur du mot de donnée
+    port map (
+        p   =>  ,  -- code d'opération
+        i   =>  ,  -- entrée de retenue
+        adr =>  ,  -- parité d'adresse
+        a   =>  ,  -- entrée d'opérande A
+        b   =>  ,  -- entrée d'opérande B
+        r   =>  ,  -- sortie de résultat
+        c   =>  ,  -- sortie de retenue
+        v   =>  ); -- débordement;
+
+
+bc:  BRANCH_CONTROLLER -- contrôleur de branchement
+    port map (
+        cc  =>  ,  -- commande de code de condition
+        nf  =>  ,  -- entrée negative flag
+        cf  =>  ,  -- entrée carry flag
+        vf  =>  ,  -- entrée overflow flag
+        zf  =>  ,  -- entrée zero flag
+        br  =>  ); -- sortie requête de branchement
+
+
+-- Ne pas mettre IDL au TP de micromachine n°9
+
+idl: INSTRUCTION_DECODER_LOGIC -- logique du décodeur d'instruction
+    port map (
+        ic    =>  ,  -- entrée de code d'instruction
+        cycle =>  ,  -- n° cycle dans l'instruction
+        mic   =>  ); -- sortie de code de micro instruction
+
+

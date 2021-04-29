@@ -1,0 +1,5 @@
++ Benfaida--Domarin
+  + cntn
+    Votre chronogramme ne montre pas le fonctionnement du compteur, comment savoir si
+    il marche ? Quand vous le verifirai, faites attention à la valeur de C : je paris
+    qu'il faudra modifier votre code quelque peu !

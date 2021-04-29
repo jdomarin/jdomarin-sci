@@ -1,0 +1,6 @@
++ Benfaida--Domarin
+  + mux
+    OK
+  + add
+    Votre retenue d'entrée semble compter pour 2 et non pas 1, la simulation
+    révèle le bug : il faut le corriger.

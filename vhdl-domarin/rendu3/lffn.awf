@@ -1,0 +1,73 @@
+$WAVE
+$SIGNAL 2 G -1 0 IN 400000
+2 Stimulator="KEY:KEY:Override:71/0,1:G:1:0ps"
+$BUS 1 4 D -1 0 IN 400000
+1 Stimulator="KEY:KEY:Override:68/1000,1001,1010,1011,1111:D:1:0ps"
+$SIGNAL 4 "(3)" 1 0 IN 400000
+$SIGNAL 5 "(2)" 1 1 IN 400000
+$SIGNAL 6 "(1)" 1 2 IN 400000
+$SIGNAL 7 "(0)" 1 3 IN 400000
+$BUS 3 4 Q -1 0 BUFFER 400000
+$SIGNAL 8 "(3)" 3 0 BUFFER 400000
+$SIGNAL 9 "(2)" 3 1 BUFFER 400000
+$SIGNAL 10 "(1)" 3 2 BUFFER 400000
+$SIGNAL 11 "(0)" 3 3 BUFFER 400000
+$EVENTS
+I 0 "a#32#std_logic_vector((N-1) downto 0)1 ricd3 0 e#9#std_logicc9 UX01ZWLH-"
+S 1 0
+I 1 "e#9#std_logicc9 UX01ZWLH-"
+S 2 1
+S 3 0
+S 4 1
+S 5 1
+S 6 1
+S 7 1
+S 8 1
+S 9 1
+S 10 1
+S 11 1
+4 U
+5 U
+6 U
+7 U
+2 U
+8 U
+9 U
+10 U
+11 U
+D 1
+2 0
+7 0
+6 0
+5 0
+4 1
+T 100000
+D 1
+2 1
+D 2
+11 0
+10 0
+9 0
+8 1
+T 100000
+D 1
+7 1
+6 1
+D 2
+11 1
+10 1
+T 100000
+D 1
+6 0
+2 0
+T 100000
+2 0
+4 1
+5 0
+6 0
+7 1
+8 1
+9 0
+10 1
+11 1
+$ENDWAVE

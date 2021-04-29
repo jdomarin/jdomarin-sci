@@ -1,0 +1,19 @@
++ Benfaida--Domarin
+  +muxn_2
+    Attention il faut respecter l'ordre des signaux d'entrée-sortie dans la
+    déclaration du composant : cet ordre contera quand tu devra instancier
+    ton composant.
+  + muxn-4
+    Même remarque.
+  +addn
+    Le code n'est pas correct et ne doit d'ailleur pas compiler…
+    «I <= RI(0);» n'est pas dans le bon sens : il faut affecter la valeur de
+    I au signal RI(0), tu te trompe de sens et cela génère une erreur car on
+    ne peut affecter de valeur à un signal d'input.
+    «RC(j) <= ( (B(j) and I) or (A(j) and I) ) or (A(j) and B(j)) ;»
+    Attention la retenu entrante de la tranche j n'est pas I
+  + question 2
+    Si il y a un changement! Quand SYNTHESIS_OFF est à true, le signal RC
+    apparait dans les équations synthétisées.
+  + question 3 et 4
+    Le code n'étant pas juste tu ne tombe pas sur les bonne réponses.

@@ -1,0 +1,13 @@
+muxn_2.vhd
+muxn_4.vhd
+regn.vhd
+cntn.vhd
+baspck.vhd
+alsun.vhd
+bc.vhd
+tprf.vhd
+micpck.vhd
+idlpck.vhd
+idl1.vhd
+cpupck.vhd
+cpu.vhd

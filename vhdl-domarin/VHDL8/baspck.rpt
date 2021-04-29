@@ -1,0 +1,42 @@
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp VHDL Synthesis Compiler: Version 6.2 IR 28.4
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  baspck.vhd
+Options:    -yu -e10 -w100 -o2 -ygs -fO -fP -v10 -dc37256 -pcy37256p160-83ac -a baspck.vhd -u tprf.hie -uch0000
+======================================================================
+
+vhdlfe V6.2 IR 27:  VHDL parser
+Fri Feb 25 10:29:34 2011
+
+Library 'work' => directory 'lc37256'
+Linking 'C:\Program Files\Cypress\Warp\bin\std.vhd'.
+Linking 'C:\Program Files\Cypress\Warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files\Cypress\Warp\lib\common\work\cypress.vif'.
+Library 'ieee' => directory 'C:\Program Files\Cypress\Warp\lib\ieee\work'
+Linking 'C:\Program Files\Cypress\Warp\lib\ieee\work\stdlogic.vif'.
+
+vhdlfe:  No errors.
+
+
+tovif V6.2 IR 27:  High-level synthesis
+Fri Feb 25 10:29:34 2011
+
+Linking 'C:\Program Files\Cypress\Warp\bin\std.vhd'.
+Linking 'C:\Program Files\Cypress\Warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files\Cypress\Warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files\Cypress\Warp\lib\ieee\work\stdlogic.vif'.
+Added package 'basic_pack' to library 'work'
+
+tovif:  No errors.
+

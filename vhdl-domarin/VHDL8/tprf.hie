@@ -1,0 +1,8 @@
+tprf.vhd #Entity tprf 19
+tprf.vhd #Architecture tprf_arch tprf 37
+tprf.vhd #Instance regn_0 regn 47
+tprf.vhd #Instance regn_1 regn 56
+tprf.vhd #Instance regn_2 regn 65
+tprf.vhd #Instance regn_3 regn 74
+tprf.vhd #Instance muxn_4_a muxn_4 83
+tprf.vhd #Instance muxn_4_b muxn_4 93

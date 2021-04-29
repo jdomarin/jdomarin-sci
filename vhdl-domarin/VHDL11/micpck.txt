@@ -1,0 +1,101 @@
+(C) Alexandre Parodi - Octobre 2002 - Mars 2007
+
+AFFECTATION DES CHAMPS DE MICROINSTRUCTION
+==========================================
+
+Les affectations des divers champs de mic sont prédéfinies ci-après.
+
+Copier-coller tout le paragraphe suivant dans le processus 
+mic_generator de idl.vhd pour chaque cycle de chaque instruction,
+puis, pour chaque champ, compléter le nom de la constante 
+par le bon mot clé du commentaire.
+
+Par exemple, si l'on veut que le PC ne se charge jamais dans ce cycle,
+l'affectation prédéfinie du champ bc_cc :
+
+micv.bc_cc := BC_CC_ ; -- NV  AL ...
+
+devient:
+
+micv.bc_cc := BC_CC_NV ; -- PC n'est jamais (NeVer) chargé
+
+Pour chaque valeur valide de chaque champ du code de micro instruction,
+une constante a été définie et commentée dans le fichier micpck.vhd.
+
+
+On peut aussi affecter directement un champ de  microinstruction 
+avec la valeur d'un champ d'instruction, en utilisant un alias
+sur ce champ d'instruction pour un format d'instruction particulier.
+Les alias sur des champs (i.e. groupes de bits) de ic (Instruction Code)
+sont définis dans idl0.vhd.
+Ils utilisent les mêmes noms de champ que la carte de programmation.
+
+
+Exemple:
+
+micv.rf_oas := f1_crsa ; -- rf_oa = contenu du registre n° crsa
+
+f1_crsa est un alias sur 
+    le champ "CRSA" (Code du Registre Source A i.e. n° de ce registre) 
+    du code d'instruction ic (Instruction Code)
+    avec le Format (d'instruction du groupe n°) 1.
+
+Par exemple, si l'on a l'instruction "ADD R1, R2, R3"
+ic = 1 110 0001 0010 0011; cette instruction est du groupe 1,
+et le champ crsa=0001 : le registre source A est bien R1.
+
+
+Exemple:
+
+micv.alsu_op := "00" & f1_op3 ; -- concaténation de 00 et du champ op3 du format 1 de ic
+
+La commande P de l'ALSU sera bien celle demandée par une instruction du groupe 1.
+Par exemple, pour l'instruction ci-dessus "ADD R1, R2, R3"
+de code d'instruction ic = 1 110 0001 0010 0011
+le champ op3 = 110 (addition).
+La commande P ( = mic.alsu_op) à envoyer sur l'ALSU est bien: 00110,
+c'est à dire la concaténation de 00 et 110, donc 00 et op3.
+Les codes d'opération que l'ALSU peut exécuter ont tous été choisis
+pour correspondre aux valeurs du champ opération d'instructions.
+(cf. TP n°6 - ALSU).
+
+
+Exemple:
+
+micv.bc_cc := f8_cc ; -- PC est chargé ssi la condition est vérifiée.
+
+Cette condition est ici indiquée par l'alias f8_cc qui est 
+le champ "CC" (Condition Code) du code de l'instruction de format 8.
+Ceci fonctionne ici encore parce que les codes utilisés par le "branch controller"
+(cf. TP n°7 - Contrôleur de branchement) sont les mêmes que ceux
+des instructions de branchement (cf. carte de programmation).
+
+
+
+Ceci permet d'obtenir du code plus simple à écrire, plus sûr et plus lisible.
+De plus, le compilateur pourra repérer certaines erreurs:
+
+o Si on oublie d'affecter un champ, ceci déclenche une erreur de compilation car
+un identifieur se terminant par _ est interdit.
+
+o De même, si on écrit mal le nom d'une constante ou un alias, le compilateur réagira aussi.
+
+
+        micv.alsu_op    := ALSU_OP_    ; -- NOCARE ADD ADC SUB NEG AND OR XOR NOT SRL SRA RRC PSB LDB STB EXT SWP RLB
+        micv.alsu_ais   := ALSU_AIS_   ; -- PC  OA  SR ZERO NOCARE
+        micv.alsu_bis   := ALSU_BIS_   ; -- OB  DBUS  QV  UV  NOCARE
+        micv.alsu_uvc   := ALSU_UVC_   ; -- 0  1  2  3  NOCARE
+        micv.rf_oas     := RF_OAS_     ; -- R0  R1  R2  R3  SP  NOCARE
+        micv.rf_obs     := RF_OBS_     ; -- R0  R1  R2  R3  SP  NOCARE
+        micv.rf_ins     := RF_INS_     ; -- R0  R1  R2  R3  SP  NOCARE
+        micv.rf_l       := RF_L_       ; -- HOLD  LOAD
+        micv.abus_s     := ABUS_S_     ; -- PC    OA (or OB depending on architecture) NOCARE
+        micv.cbus_typ   := CBUS_TYP_   ; -- WORD  BYTE   NOCARE
+        micv.cbus_wrt   := CBUS_WRT_   ; -- READ    WRITE    NOCARE
+        micv.cbus_str   := CBUS_STR_   ; -- RELEASE   USE
+        micv.sr_l       := SR_L_       ; -- HOLD   LOAD
+        micv.pc_i       := PC_I_       ; -- NOINC  INC   NOCARE
+        micv.bc_cc      := BC_CC_      ; -- NV AL EQ NE GE LE GT LW AE BE AB BL VS VC NS NC
+        micv.ir_l       := IR_L_       ; -- HOLD   LOAD
+        micv.msg        := MSG_        ; -- OK   ILLEGAL_INSTRUCTION
+        micv.next_cycle := CYCLE_      ; -- NOCARE  0 1 2 3 4 5 6 7

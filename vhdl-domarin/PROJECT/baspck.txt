@@ -1,0 +1,52 @@
+Fichier Baspck.txt
+
+(C) Alexandre Parodi - October 2002
+
+Blocs d'instantiation à copier-coller et à remplir
+pour le BASIC_PACK.
+
+
+mux_  : MUXN_4  -- multiplexeur à 4 entrées
+    generic map (
+        N   =>  )  -- largeur du mot de donnée
+    port map (
+        s   =>  ,  -- sélecteur de l'entrée à sortir
+        x0  =>  ,  -- entrée n°0
+        x1  =>  ,  -- entrée n°1
+        x2  =>  ,  -- entrée n°2
+        x3  =>  ,  -- entrée n°3
+        y   =>  ); -- sortie
+
+mux_  : MUXN_2  -- multiplexeur à 2 entrées
+    generic map (
+        N   =>  )  -- largeur du mot de donnée
+    port map (
+        s   =>  ,  -- sélecteur de l'entrée à sortir
+        x0  =>  ,  -- entrée n°0
+        x1  =>  ,  -- entrée n°1
+        y   =>  ); -- sortie
+
+
+reg_ : REGN  -- registre
+    generic map (
+        N  =>  )     -- largeur du mot de donnée
+    port map (
+        clock =>  ,  -- horloge
+        R     =>  ,  -- reset: commande de RAZ
+        L     =>  ,  -- load: commande de chargement
+        D     =>  ,  -- data: entrée de donnée à charger
+        Q     =>  ); -- sortie de donnée stockée
+
+
+cnt_ : CNTN  -- compteur binaire synchrone
+    generic map (
+        N  =>  )     -- largeur du mot de donnée
+    port map (
+        clock =>  ,  -- horloge
+        R     =>  ,  -- reset: commande de ré-initialisation
+        L     =>  ,  -- load: commande de chargement
+        T     =>  ,  -- increment: commande d'incrémentation
+        V     =>  ,  -- init data: donnée initiale 
+        D     =>  ,  -- data: donnée à charger
+        Q     =>  ,  -- valeur de comptage
+        C     =>  ); -- sortie de retenue (si nécessaire)

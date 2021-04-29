@@ -1,0 +1,11 @@
++ Benfaida--Domarin
+  + passn
+    OK
+  + lffn
+    Je n'ai pas eu votre fichier !
+  + dffn
+    OK
+  + regn
+    Pas de fichier non plus !
+  + bufn
+    Ok, bonne explication.
